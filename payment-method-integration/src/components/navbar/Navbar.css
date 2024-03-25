@@ -1,0 +1,24 @@
+.navbar.transparent {
+  background-color: transparent;
+}
+
+.navbar.white {
+  background-color: white;
+}
+
+.navbar-toggler {
+  border: none !important;
+  font-size: 1.25rem !important;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+@media screen and (max-width: 600px) {
+  .cart-icon {
+    margin-right: 20px !important;
+  }
+}

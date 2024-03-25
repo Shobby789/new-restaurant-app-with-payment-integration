@@ -1,0 +1,17 @@
+.quality-card {
+  width: 18rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.quality-card-img {
+  width: 70px;
+  height: 70px;
+  /* border: 1px solid black; */
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 18px;
+  background-color: #f4cc87;
+}

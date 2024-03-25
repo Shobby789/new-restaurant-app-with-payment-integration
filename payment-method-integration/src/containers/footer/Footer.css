@@ -1,0 +1,52 @@
+.footer-img {
+  width: 250px;
+  height: 200px;
+  position: absolute;
+  bottom: -80px;
+  left: -120px;
+  z-index: -5;
+}
+
+.footer-external-links {
+  text-align: left;
+  list-style: none;
+  float: left !important;
+}
+
+.footer-external-links li {
+  display: inline;
+  border: 1.5px solid var(--bg-yellow);
+  width: 20px;
+  height: 20px;
+  padding: 0.5rem 0.6rem;
+  border-radius: 100%;
+}
+
+.footer-external-links li svg {
+  color: var(--text-yellow);
+}
+
+.footer-external-links li:hover {
+  background: var(--bg-yellow);
+  transition: 0.3s ease;
+}
+
+.footer-external-links li svg:hover {
+  color: white;
+  /* transition: 0.3s ease; */
+}
+
+.subscribe-btn {
+  background: transparent;
+  color: var(--text-yellow);
+  border: 1.5px solid var(--bg-yellow);
+}
+
+.subscribe-input::placeholder {
+  color: var(--paragraph-color);
+}
+.subscribe-btn:hover {
+  background: var(--bg-yellow);
+  color: white;
+  transition: 0.3s ease;
+}

@@ -1,0 +1,9 @@
+.cart-btn {
+  width: 100% !important;
+  background: var(--bg-yellow);
+}
+
+.cart-btn:hover {
+  background: #f5a21c;
+  transition: 0.3s ease;
+}

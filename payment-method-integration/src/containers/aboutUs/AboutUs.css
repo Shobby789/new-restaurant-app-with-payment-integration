@@ -1,0 +1,22 @@
+.about-us-img {
+  width: 22rem;
+  height: 18rem;
+}
+
+.about-btn {
+  border: 2px solid var(--text-yellow);
+  color: var(--text-yellow);
+  background: transparent;
+}
+
+.about-btn:hover {
+  background: var(--bg-yellow);
+  color: white;
+  transition: 0.3s ease;
+}
+
+@media screen and (max-width: 600px) {
+  .about-heading {
+    margin-top: 30px;
+  }
+}
