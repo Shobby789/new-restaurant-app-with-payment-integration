@@ -33,7 +33,7 @@ const Navbar = () => {
         }
         style={navbarStyle}
       >
-        <div className="container px-0">
+        <div className="container-fluid px-3 px-lg-5">
           <Link
             className="navbar-brand me-auto fw-bold fs-3 yellow-text"
             to="/"

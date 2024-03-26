@@ -5,7 +5,7 @@ import image from "../../assets/hero-img.png";
 const Header = ({ heading, text }) => {
   return (
     <div className="common-header">
-      <div className="common-header-left d-flex flex-column justify-content-start">
+      <div className="common-header-left d-flex flex-column justify-content-center align-items-start">
         <h1 className="fw-bold common-header-heading">{heading}</h1>
         <p className="yellow-text text-medium fw-medium ps-1">{text}</p>
       </div>

@@ -8,7 +8,7 @@ const AboutUs = () => {
       <div className="container py-5">
         <div className="row">
           <div className="col-sm-12 col-md-6 col-lg-6 ps-lg-3">
-            <img src={aboutUsImg} alt="" className="about-us-img" />
+            <img src={aboutUsImg} alt="" className="img-fluid about-us-img" />
           </div>
 
           <div className="col-sm-12 col-md-6 col-lg-6 px-1 pe-lg-3">

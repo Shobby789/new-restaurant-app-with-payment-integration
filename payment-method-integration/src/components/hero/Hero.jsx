@@ -5,10 +5,10 @@ export default function Hero() {
   return (
     <>
       <div className="custom-hero">
-        <div className="hero-text">
-          <h6 className="yellow-text fw-semibold mb-4">_Restaurant</h6>
+        <div className="hero-text d-flex flex-column justify-content-center align-items-start gap-0 gap-lg-3">
+          <h6 className="yellow-text fw-semibold mb-3">_Restaurant</h6>
           <h1 className="fw-bold">Find the Best Food in Your Home Town</h1>
-          <p className="text-grey my-4 text-medium">
+          <p className="text-grey mt-1 mb-3 text-medium">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
             veniam in ipsam labore accusantium distinctio ex temporibus dolorem,
             doloribus aperiam!
