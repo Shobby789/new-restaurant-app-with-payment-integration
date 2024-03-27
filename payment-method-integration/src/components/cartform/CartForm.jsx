@@ -1,21 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CartForm.css";
 import { BsCreditCard2FrontFill } from "react-icons/bs";
 import { FaCcPaypal } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { calculateTotalAmount } from "../../redux/cartSlice/cartSlice";
 
-const CartForm = ({ totlaAmount }) => {
+const CartForm = ({ totalAmount }) => {
   const titles = ["Order Summary", "Shipping Info", "Payment Info"];
-  const cartItems = useSelector((state) => state.cartItems.cartItems);
+  const cartItems = useSelector((state) => state.cartItems);
+  console.log("cartItems >> ", cartItems);
+  const dispatch = useDispatch();
+
   const [title, setTitle] = useState(0);
   const handleNext = () => {
     setTitle(title + 1);
   };
 
+  useEffect(() => {
+    dispatch(calculateTotalAmount());
+  }, [cartItems, dispatch]);
+
   const renderStep = () => {
     switch (title) {
       case 0:
-        return <OrderSummary amount={totlaAmount} />;
+        return <OrderSummary amount={parseInt(cartItems?.cartTotalAmount)} />;
       case 1:
         return <ShippingInfo />;
       case 2:
@@ -30,7 +38,7 @@ const CartForm = ({ totlaAmount }) => {
   };
 
   return (
-    <div className="container h-75 mx-auto d-flex flex-column justify-content-between pt-3 pb-5">
+    <div className="container px-0 h-75 mx-auto d-flex flex-column justify-content-between pt-3 pb-5">
       <div className="mb-3">
         <h5 className="fw-semibold">{titles[title]}</h5>
       </div>
@@ -52,16 +60,16 @@ const CartForm = ({ totlaAmount }) => {
 export default CartForm;
 
 const OrderSummary = ({ amount }) => {
-  const cartItems = useSelector((state) => state.cartItems.cartItems);
+  const cartItems = useSelector((state) => state.cartItems);
   return (
     <>
       <div className="d-flex justify-content-between border-bottom mb-3">
         <p className="text-medium fw-medium">Items</p>
-        <p className="text-medium fw-medium">{cartItems.length}</p>
+        <p className="text-medium fw-medium">{cartItems?.cartTotalQuantity}</p>
       </div>
       <div className="d-flex justify-content-between border-bottom mb-3">
         <p className="text-medium fw-medium">Sub Total</p>
-        <p className="text-medium fw-medium">${amount}.00</p>
+        <p className="text-medium fw-medium">${parseInt(amount)}.00</p>
       </div>
       <div className="d-flex justify-content-between border-bottom mb-3">
         <p className="text-medium fw-medium">Delivery Charges</p>
@@ -69,7 +77,7 @@ const OrderSummary = ({ amount }) => {
       </div>
       <div className="d-flex justify-content-between border-bottom mb-4">
         <p className="text-medium fw-medium">Total</p>
-        <p className="text-medium fw-medium">${amount}.00</p>
+        <p className="text-medium fw-medium">${amount + 5}.00</p>
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import CartForm from "../../components/cartform/CartForm";
@@ -11,13 +11,14 @@ import {
 } from "../../redux/cartSlice/cartSlice";
 
 const Cart = () => {
-  const cartItems = useSelector((state) => state.cartItems.cartItems);
+  const cartItems = useSelector((state) => state.cartItems);
   console.log("cartItems >> ", cartItems);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
-    dispatch(calculateTotalAmount());
+    setTotalAmount(dispatch(calculateTotalAmount()));
   }, [cartItems, dispatch]);
 
   return (
@@ -46,9 +47,9 @@ const Cart = () => {
                 </tr>
               </thead>
               <tbody>
-                {cartItems?.length > 0 ? (
+                {cartItems?.cartItems?.length > 0 ? (
                   <>
-                    {cartItems.map(
+                    {cartItems.cartItems.map(
                       ({
                         id,
                         title,
@@ -67,7 +68,7 @@ const Cart = () => {
                               />
                             </td>
                             <td className="py-3">{title}</td>
-                            <td>${price}.00</td>
+                            <td>${parseInt(price)}.00</td>
                             <td className="py-3">
                               <button
                                 className="btn border-0 outline-none btn-sm py-0"
@@ -95,7 +96,9 @@ const Cart = () => {
                                 +
                               </button>
                             </td>
-                            <td className="py-3 text-center">${price}.00</td>
+                            <td className="py-3 text-center">
+                              ${price * cartQuantity}.00
+                            </td>
                             <td className="py-3">
                               <button
                                 type="button"

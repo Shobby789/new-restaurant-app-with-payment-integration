@@ -86,14 +86,14 @@ const Navbar = () => {
                     Menu
                   </Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link
                     className="nav-link mx-lg-3 text-dark fw-medium text-medium"
                     to="/my-orders"
                   >
                     My Orders
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <Link
                     className="nav-link mx-lg-3 text-dark fw-medium text-medium"
