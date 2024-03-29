@@ -20,29 +20,29 @@ const Footer = () => {
             >
               foodie
             </Link>
-            <p className="text-small text-grey my-3">
+            <p className="text-small text-grey mb-1">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               Exercitationem, non.
             </p>
-            <ul className="footer-external-links mt-3">
-              <li className="mx-1">
+            <ul className="px-0 py-1">
+              <li className="me-1 pb-2 pt-1 px-2 d-inline border border-warning rounded-5">
                 <Link to="">
-                  <TiSocialFacebook className="fs-5" />
+                  <TiSocialFacebook className="fs-5 text-warning" />
                 </Link>
               </li>
-              <li className="mx-1">
+              <li className="mx-1 pb-2 pt-1 px-2 d-inline border border-warning rounded-5">
                 <Link to="">
-                  <PiTwitterLogoLight className="fs-5" />
+                  <PiTwitterLogoLight className="fs-5 text-warning" />
                 </Link>
               </li>
-              <li className="mx-1">
+              <li className="mx-1 pb-2 pt-1 px-2 d-inline border border-warning rounded-5">
                 <Link to="">
-                  <LiaLinkedinIn className="fs-5" />
+                  <LiaLinkedinIn className="fs-5 text-warning" />
                 </Link>
               </li>
-              <li className="mx-1">
+              <li className="mx-1 pb-2 pt-1 px-2 d-inline border border-warning rounded-5">
                 <Link to="">
-                  <IoLogoInstagram className="fs-5" />
+                  <IoLogoInstagram className="fs-5 text-warning" />
                 </Link>
               </li>
             </ul>
@@ -69,10 +69,10 @@ const Footer = () => {
             <div className="mt-4 px-0">
               <input
                 type="email"
-                className="form-control mb-3 text-small p-3 text-grey rounded-5 subscribe-input"
+                className="form-control mb-3 text-small p-3 text-grey rounded-2 subscribe-input"
                 placeholder="Enter your email"
               />
-              <button className="w-100 py-2 fw-semibold text-small rounded-5 subscribe-btn">
+              <button className="w-100 py-2 fw-semibold text-small rounded-2 subscribe-btn">
                 Subscribe
               </button>
             </div>

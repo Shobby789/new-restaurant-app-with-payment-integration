@@ -3,13 +3,14 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const { DBConnection } = require("./db");
 const app = express();
+require("dotenv").config();
 app.use(cors());
 app.use(bodyParser.json());
 DBConnection();
+const PORT = process.env.PORT || 5000;
 require("./models/userSchema");
-const stripe = require("stripe")(
-  "sk_test_51OyvorBEJbyBfiqfId7HxnAVWEvQ4N6egfyEqA25HF0WatTUzhcGydxz0FlDAxulFjvlLuZGYfEZVnrwiQA6KmyZ00SzP0Xlgs"
-);
+const STRIPE_URI = process.env.STRIPE_URI;
+const stripe = require("stripe")(STRIPE_URI);
 
 app.post("/place-order", async (req, res) => {
   // const { products } = req.body;
@@ -41,6 +42,6 @@ app.post("/place-order", async (req, res) => {
 
 app.use("/api", require("./routes/userRoute"));
 
-app.listen(3001, () => {
-  console.log("server running");
+app.listen(PORT, () => {
+  console.log(`server running ${PORT}`);
 });

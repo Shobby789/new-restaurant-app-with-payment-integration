@@ -256,7 +256,7 @@ const PaymentInfo = ({ onclick, data, handleOnChange }) => {
       </div>
       <div className="container w-100 px-0 pb-3">
         <button
-          className="w-100 py-2 fw-medium text-medium cart-btn text-light border-0"
+          className="w-100 py-2 fw-medium text-medium cart-btn text-light border-0 rounded-2"
           onClick={() => onclick()}
         >
           Place Order
