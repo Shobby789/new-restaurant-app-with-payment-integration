@@ -5,12 +5,14 @@ import {
   calculateTotalAmount,
 } from "../../redux/cartSlice/cartSlice";
 import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 
 const ItemCard = ({ id, imageUrl, title, description, price }) => {
   const dispatch = useDispatch();
   const handleAddToCart = (item) => {
     dispatch(addToCart(item));
     dispatch(calculateTotalAmount(item));
+    toast.success("Product added to cart");
   };
   return (
     <>

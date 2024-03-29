@@ -16,6 +16,10 @@ import Home from "./pages/home/Home.jsx";
 import Menu from "./pages/menu/Menu.jsx";
 import About from "./pages/about/About.jsx";
 import Contact from "./pages/contact/Contact.jsx";
+import Success from "./pages/paymentStatus/Success.jsx";
+import Cancel from "./pages/paymentStatus/Cancel.jsx";
+import Login from "./pages/auth/Login.jsx";
+import Register from "./pages/auth/Register.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +30,10 @@ const router = createBrowserRouter(
         <Route path="/cart" element={<Cart />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/contact-us" element={<Contact />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Cancel />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Route>
     </Route>
   )

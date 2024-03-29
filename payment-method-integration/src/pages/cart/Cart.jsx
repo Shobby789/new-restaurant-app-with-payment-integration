@@ -9,10 +9,11 @@ import {
   decrementQuantity,
   removeItem,
 } from "../../redux/cartSlice/cartSlice";
+import toast from "react-hot-toast";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cartItems);
-  console.log("cartItems >> ", cartItems);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [totalAmount, setTotalAmount] = useState(0);
@@ -20,6 +21,11 @@ const Cart = () => {
   useEffect(() => {
     setTotalAmount(dispatch(calculateTotalAmount()));
   }, [cartItems, dispatch]);
+
+  const removeItemFromCart = (data) => {
+    dispatch(removeItem(data));
+    toast.success("Item removed from cart");
+  };
 
   return (
     <div className="container-fluid pt-5 pb-5 mb-5">
@@ -106,15 +112,13 @@ const Cart = () => {
                                 data-bs-dismiss="offcanvas"
                                 aria-label="Close"
                                 onClick={() =>
-                                  dispatch(
-                                    removeItem({
-                                      id,
-                                      title,
-                                      quantity,
-                                      price,
-                                      imageUrl,
-                                    })
-                                  )
+                                  removeItemFromCart({
+                                    id,
+                                    title,
+                                    quantity,
+                                    price,
+                                    imageUrl,
+                                  })
                                 }
                               ></button>
                             </td>

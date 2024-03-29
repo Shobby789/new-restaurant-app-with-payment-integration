@@ -1,0 +1,27 @@
+.auth-form {
+  width: 35%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.input-group-text {
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  right: 1%;
+  top: 8%;
+}
+
+.auth-form > div > input::placeholder {
+  color: grey;
+  font-size: 0.8rem;
+}
+
+input[type="password"]::placeholder {
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 420px) {
+  .auth-form {
+    width: 100%;
+  }
+}

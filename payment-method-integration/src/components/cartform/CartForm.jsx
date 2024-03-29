@@ -3,17 +3,32 @@ import "./CartForm.css";
 import { BsCreditCard2FrontFill } from "react-icons/bs";
 import { FaCcPaypal } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { calculateTotalAmount } from "../../redux/cartSlice/cartSlice";
+import {
+  calculateTotalAmount,
+  removeAllItems,
+} from "../../redux/cartSlice/cartSlice";
+import { loadStripe } from "@stripe/stripe-js";
 
 const CartForm = ({ totalAmount }) => {
+  const [userData, setUserData] = useState({
+    name: "",
+    cardNumber: "",
+    expiryDate: "",
+    cvc: "",
+  });
   const titles = ["Order Summary", "Shipping Info", "Payment Info"];
   const cartItems = useSelector((state) => state.cartItems);
-  console.log("cartItems >> ", cartItems);
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState(0);
   const handleNext = () => {
     setTitle(title + 1);
+  };
+
+  const handleOnChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setUserData({ ...userData, [name]: value });
   };
 
   useEffect(() => {
@@ -33,8 +48,34 @@ const CartForm = ({ totalAmount }) => {
     }
   };
 
-  const placeOrderHandler = () => {
-    alert("Order placed");
+  const placeOrderHandler = async () => {
+    const stripe = await loadStripe(
+      "pk_test_51OyvorBEJbyBfiqfeh5m47kbjAqdhUzzkFRBNGwGMf4jHYyzlkgLmDCYsHOkP3YuAxbo9ZXJHGoBFwducz9ATi4x00rxKcBaIX"
+    );
+
+    const body = {
+      products: cartItems,
+      user: userData,
+    };
+
+    const response = await fetch("http://localhost:3001/place-order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+
+    const session = await response.json();
+
+    const result = stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+
+    if (result.error) {
+      console.log("Payment error >> ", error);
+    }
+    dispatch(removeAllItems());
   };
 
   return (
@@ -43,16 +84,20 @@ const CartForm = ({ totalAmount }) => {
         <h5 className="fw-semibold">{titles[title]}</h5>
       </div>
 
-      {renderStep()}
+      <PaymentInfo
+        onclick={placeOrderHandler}
+        data={userData}
+        handleOnChange={handleOnChange}
+      />
 
-      <div className="container w-100 px-0 pb-3">
+      {/* <div className="container w-100 px-0 pb-3">
         <button
           className="w-100 py-2 fw-medium text-medium cart-btn text-light border-0"
           onClick={title < 2 ? handleNext : placeOrderHandler}
         >
           {title < 2 ? <span>Next</span> : <span>Place Order</span>}
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -126,36 +171,35 @@ const ShippingInfo = () => {
   );
 };
 
-const PaymentInfo = () => {
+const PaymentInfo = ({ onclick, data, handleOnChange }) => {
   return (
     <>
       <div className="mb-3">
-        <div class="form-check mb-2">
+        <div className="form-check mb-2">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="radio"
             name="flexRadioDefault"
             id="flexRadioDefault1"
-            checked
           />
           <label
-            class="form-check-label ms-2 tex-medium fw-medium"
-            for="flexRadioDefault1"
+            className="form-check-label ms-2 tex-medium fw-medium"
+            htmlFor="flexRadioDefault1"
           >
             <BsCreditCard2FrontFill className="fs-5" />
             <span className="ms-1">Credit Card</span>
           </label>
         </div>
-        <div class="form-check">
+        <div className="form-check">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="radio"
             name="flexRadioDefault"
             id="flexRadioDefault2"
           />
           <label
-            class="form-check-label ms-2 tex-medium fw-medium"
-            for="flexRadioDefault2"
+            className="form-check-label ms-2 tex-medium fw-medium"
+            htmlFor="flexRadioDefault2"
           >
             <FaCcPaypal className="fs-5" />
             <span className="ms-1">PayPal</span>
@@ -168,6 +212,9 @@ const PaymentInfo = () => {
         </label>
         <input
           type="text"
+          name="name"
+          value={data.name}
+          onChange={handleOnChange}
           className="form-control text-medium py-2 text-grey"
         />
       </div>
@@ -177,6 +224,21 @@ const PaymentInfo = () => {
         </label>
         <input
           type="text"
+          name="cardNumber"
+          value={data.cardNumber}
+          onChange={handleOnChange}
+          className="form-control text-medium py-2 text-grey"
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="" className="form-label text-medium fw-medium">
+          CVC Number
+        </label>
+        <input
+          type="text"
+          name="cvc"
+          value={data.cvc}
+          onChange={handleOnChange}
           className="form-control text-medium py-2 text-grey"
         />
       </div>
@@ -186,8 +248,19 @@ const PaymentInfo = () => {
         </label>
         <input
           type="date"
+          name="expiryDate"
+          value={data.expiryDate}
+          onChange={handleOnChange}
           className="form-control text-medium py-2 text-grey"
         />
+      </div>
+      <div className="container w-100 px-0 pb-3">
+        <button
+          className="w-100 py-2 fw-medium text-medium cart-btn text-light border-0"
+          onClick={() => onclick()}
+        >
+          Place Order
+        </button>
       </div>
     </>
   );
