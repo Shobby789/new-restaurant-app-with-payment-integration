@@ -104,3 +104,9 @@
   justify-content: flex-start;
   padding: 25px 20px;
 }
+
+@media screen and (max-width: 720px) {
+  .auth-form {
+    width: 100% !important;
+  }
+}

@@ -40,9 +40,15 @@ const CartForm = ({ totalAmount }) => {
       case 0:
         return <OrderSummary amount={parseInt(cartItems?.cartTotalAmount)} />;
       case 1:
-        return <ShippingInfo />;
+        return <ShippingInfo onclick={placeOrderHandler} />;
       case 2:
-        return <PaymentInfo />;
+        return (
+          <PaymentInfo
+            onclick={placeOrderHandler}
+            data={userData}
+            handleOnChange={handleOnChange}
+          />
+        );
       default:
         return null;
     }
@@ -84,20 +90,25 @@ const CartForm = ({ totalAmount }) => {
         <h5 className="fw-semibold">{titles[title]}</h5>
       </div>
 
-      <PaymentInfo
+      {/* <PaymentInfo
         onclick={placeOrderHandler}
         data={userData}
         handleOnChange={handleOnChange}
-      />
+      /> */}
 
-      {/* <div className="container w-100 px-0 pb-3">
-        <button
-          className="w-100 py-2 fw-medium text-medium cart-btn text-light border-0"
-          onClick={title < 2 ? handleNext : placeOrderHandler}
-        >
-          {title < 2 ? <span>Next</span> : <span>Place Order</span>}
-        </button>
-      </div> */}
+      <div className="container w-100 px-0 pb-3">
+        {renderStep()}
+        {title == 1 ? (
+          <></>
+        ) : (
+          <button
+            className="w-100 py-2 fw-medium text-medium cart-btn text-light border-0"
+            onClick={title < 2 ? handleNext : placeOrderHandler}
+          >
+            {title < 2 ? <span>Next</span> : <span>Place Order</span>}
+          </button>
+        )}
+      </div>
     </div>
   );
 };
@@ -128,7 +139,7 @@ const OrderSummary = ({ amount }) => {
   );
 };
 
-const ShippingInfo = () => {
+const ShippingInfo = ({ onclick }) => {
   return (
     <>
       <div className="mb-3">
@@ -166,6 +177,14 @@ const ShippingInfo = () => {
           type="text"
           className="form-control text-medium py-2 text-grey"
         />
+      </div>
+      <div className="container w-100 px-0 pb-3">
+        <button
+          className="w-100 py-2 fw-medium text-medium cart-btn text-light border-0 rounded-2"
+          onClick={() => onclick()}
+        >
+          Next
+        </button>
       </div>
     </>
   );
@@ -254,14 +273,14 @@ const PaymentInfo = ({ onclick, data, handleOnChange }) => {
           className="form-control text-medium py-2 text-grey"
         />
       </div>
-      <div className="container w-100 px-0 pb-3">
+      {/* <div className="container w-100 px-0 pb-3">
         <button
           className="w-100 py-2 fw-medium text-medium cart-btn text-light border-0 rounded-2"
           onClick={() => onclick()}
         >
           Place Order
         </button>
-      </div>
+      </div> */}
     </>
   );
 };

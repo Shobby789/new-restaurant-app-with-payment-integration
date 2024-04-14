@@ -1,78 +1,6 @@
-const foodData = [
+export const items = [
   {
     id: 1,
-    title: "Chicken skewers",
-    description: "Chicken skewers with slices of sweet peppers and dill",
-    price: 5,
-    imageUrl:
-      "https://img.freepik.com/free-photo/chicken-skewers-with-slices-sweet-peppers-dill_2829-18813.jpg?t=st=1711132406~exp=1711136006~hmac=fba715f25fede9c5f4a64a06949d104eacca12fcce21a8d1769807511e02aa7d&w=900",
-    category: "lunch",
-  },
-  {
-    id: 2,
-    title: "Penne pasta",
-    description: "Penne pasta in tomato sauce with chicken and tomatoes",
-    price: 15,
-    imageUrl:
-      "https://img.freepik.com/free-photo/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table_2829-19744.jpg?t=st=1711132458~exp=1711136058~hmac=9153f087ee248bb1f60febadc6cf93201613c0b3be4dbb6a0073ea74ff838d6b&w=900",
-    category: "breakfast",
-  },
-  {
-    id: 3,
-    title: "Mexican tacos",
-    description: "Mexican tacos with beef in tomato sauce and salsa",
-    price: 8,
-    imageUrl:
-      "https://img.freepik.com/free-photo/mexican-tacos-with-beef-tomato-sauce-salsa_2829-14218.jpg?t=st=1711132564~exp=1711136164~hmac=2dfef7501c7958cbc6208261fc617f8af953711eced1fb07f9196ca5509c49f6&w=900",
-    category: "dinner",
-  },
-  {
-    id: 4,
-    title: "tur meat",
-    description: "Chicken skewers with slices of sweet peppers and dill",
-    price: 10,
-    imageUrl:
-      "https://img.freepik.com/free-photo/selective-focus-shot-tur-meat-with-asparagus-tasty-sauce_181624-28769.jpg?t=st=1711132620~exp=1711136220~hmac=9d54b31884ef184325e7a4888cafe0348830bfaee87cca3126e410a0ea3f5244&w=900",
-    category: "breakfast",
-  },
-  {
-    id: 5,
-    title: "Doner",
-    description: "Side view doner on a plate with french fries",
-    price: 18,
-    imageUrl:
-      "https://img.freepik.com/free-photo/side-view-doner-plate-with-french-fries-tomato-fresh-cucumber-yogurt-bread-table_141793-4969.jpg?t=st=1711133357~exp=1711136957~hmac=a38283ce443094ae4582a3cd9ba6fbbcd7928ad1703427b8c4b4dfc222467d5e&w=900",
-    category: "lunch",
-  },
-  {
-    id: 6,
-    title: "Pasta spaghetti",
-    description: "Pasta spaghetti with shrimps and sauce",
-    price: 12,
-    imageUrl:
-      "https://img.freepik.com/free-photo/pasta-spaghetti-with-shrimps-sauce_1220-5072.jpg?t=st=1711133435~exp=1711137035~hmac=720d73f975b87335cd27b5147042c031b7db143e67114fa34a8b6a0cb3eadcd1&w=900",
-    category: "lunch",
-  },
-  {
-    id: 7,
-    title: "Fried meat",
-    description: "Side view fried meat with french fries and ketchup",
-    price: 20,
-    imageUrl:
-      "https://img.freepik.com/free-photo/side-view-fried-meat-with-french-fries-ketchup_141793-4908.jpg?t=st=1711133479~exp=1711137079~hmac=0dde60278266629bc164bb6420b91612b8aa903dbd67bfa6820605366f6bc74b&w=900",
-    category: "dinner",
-  },
-  {
-    id: 8,
-    title: "Russian cuisine",
-    description: "Juicy delicious meat cutlets on a dark table",
-    price: 9,
-    imageUrl:
-      "https://img.freepik.com/free-photo/juicy-delicious-meat-cutlets-dark-table-russian-cuisine_2829-7278.jpg?t=st=1711133546~exp=1711137146~hmac=3f9251df5a7886d59e05e4108e4dd36e5a16ead67ebc0902c393073dd58c0945&w=900",
-    category: "dinner",
-  },
-  {
-    id: 9,
     title: "Scrambled Eggs",
     description: "Scrambled eggs served with toast and butter",
     price: 6,
@@ -81,7 +9,7 @@ const foodData = [
     category: "breakfast",
   },
   {
-    id: 10,
+    id: 2,
     title: "Pancakes",
     description: "Fluffy pancakes served with maple syrup and fresh berries",
     price: 8,
@@ -90,7 +18,7 @@ const foodData = [
     category: "breakfast",
   },
   {
-    id: 11,
+    id: 3,
     title: "French Toast",
     description:
       "Classic French toast served with powdered sugar and a side of bacon",
@@ -100,7 +28,7 @@ const foodData = [
     category: "breakfast",
   },
   {
-    id: 12,
+    id: 4,
     title: "Caesar Salad",
     description:
       "Fresh romaine lettuce with Caesar dressing, croutons, and parmesan cheese",
@@ -110,7 +38,7 @@ const foodData = [
     category: "lunch",
   },
   {
-    id: 13,
+    id: 5,
     title: "Margherita Pizza",
     description:
       "Classic Margherita pizza with tomato sauce, mozzarella, and basil",
@@ -120,7 +48,7 @@ const foodData = [
     category: "lunch",
   },
   {
-    id: 14,
+    id: 6,
     title: "Chicken Alfredo Pasta",
     description:
       "Creamy Alfredo sauce tossed with grilled chicken and fettuccine pasta",
@@ -130,7 +58,7 @@ const foodData = [
     category: "lunch",
   },
   {
-    id: 15,
+    id: 7,
     title: "Grilled Salmon",
     description:
       "Fresh grilled salmon fillet served with steamed vegetables and rice",
@@ -140,7 +68,7 @@ const foodData = [
     category: "dinner",
   },
   {
-    id: 16,
+    id: 8,
     title: "Beef Tenderloin",
     description:
       "Tender beef tenderloin steak served with mashed potatoes and gravy",
@@ -150,7 +78,7 @@ const foodData = [
     category: "dinner",
   },
   {
-    id: 17,
+    id: 9,
     title: "Vegetable Stir-Fry",
     description:
       "Assorted vegetables stir-fried in a savory sauce served with rice",
@@ -160,7 +88,7 @@ const foodData = [
     category: "dinner",
   },
   {
-    id: 18,
+    id: 10,
     title: "Fruit Bowl",
     description: "Fresh assortment of seasonal fruits served with yogurt",
     price: 6,
@@ -169,7 +97,7 @@ const foodData = [
     category: "breakfast",
   },
   {
-    id: 19,
+    id: 11,
     title: "Club Sandwich",
     description:
       "Triple-decker sandwich with turkey, bacon, lettuce, tomato, and mayo",
@@ -179,7 +107,7 @@ const foodData = [
     category: "lunch",
   },
   {
-    id: 20,
+    id: 12,
     title: "Spaghetti Bolognese",
     description:
       "Spaghetti pasta served with rich Bolognese sauce and parmesan cheese",
@@ -188,6 +116,157 @@ const foodData = [
       "https://img.freepik.com/free-photo/bottom-view-spaghetti-with-sauce-frying-pan-fork-cherry-tomatoes-black-table_140725-112138.jpg?t=st=1713091953~exp=1713095553~hmac=3259e14fac93a10310b8f861763d3a66704247b1c81123feff7641dedf336d3e&w=996",
     category: "dinner",
   },
+  {
+    id: 13,
+    title: "Omelette",
+    description:
+      "Fluffy omelette with your choice of fillings served with hash browns",
+    price: 9,
+    imageUrl: "",
+    category: "breakfast",
+  },
+  {
+    id: 14,
+    title: "Mushroom Risotto",
+    description:
+      "Creamy mushroom risotto cooked with Arborio rice and parmesan cheese",
+    price: 13,
+    imageUrl: "",
+    category: "dinner",
+  },
+  {
+    id: 15,
+    title: "Avocado Toast",
+    description: "Sliced avocado on toasted bread served with a poached egg",
+    price: 8,
+    imageUrl: "",
+    category: "breakfast",
+  },
+  {
+    id: 16,
+    title: "Caprese Salad",
+    description:
+      "Fresh mozzarella, tomatoes, and basil drizzled with balsamic glaze",
+    price: 9,
+    imageUrl: "",
+    category: "lunch",
+  },
+  {
+    id: 17,
+    title: "Taco Platter",
+    description: "Assorted tacos served with salsa, guacamole, and sour cream",
+    price: 12,
+    imageUrl: "",
+    category: "dinner",
+  },
+  {
+    id: 18,
+    title: "Waffles",
+    description: "Crispy waffles served with whipped cream and strawberries",
+    price: 9,
+    imageUrl: "",
+    category: "breakfast",
+  },
+  {
+    id: 19,
+    title: "Greek Salad",
+    description:
+      "Fresh Greek salad with cucumbers, tomatoes, olives, and feta cheese",
+    price: 10,
+    imageUrl: "",
+    category: "lunch",
+  },
+  {
+    id: 20,
+    title: "Beef Burger",
+    description:
+      "Juicy beef patty with lettuce, tomato, onion, and pickles on a sesame seed bun",
+    price: 11,
+    imageUrl: "",
+    category: "lunch",
+  },
+  {
+    id: 21,
+    title: "Grilled Chicken Sandwich",
+    description:
+      "Grilled chicken breast with lettuce, tomato, and mayo on ciabatta bread",
+    price: 10,
+    imageUrl: "",
+    category: "lunch",
+  },
+  {
+    id: 22,
+    title: "Steak Frites",
+    description: "Grilled steak served with French fries and garlic aioli",
+    price: 18,
+    imageUrl: "",
+    category: "dinner",
+  },
+  {
+    id: 23,
+    title: "Fruit Smoothie",
+    description: "Refreshing blend of assorted fruits and yogurt",
+    price: 7,
+    imageUrl: "",
+    category: "breakfast",
+  },
+  {
+    id: 24,
+    title: "Shrimp Scampi",
+    description: "Shrimp sautéed in garlic butter sauce served over pasta",
+    price: 16,
+    imageUrl: "",
+    category: "dinner",
+  },
+  {
+    id: 25,
+    title: "Eggs Benedict",
+    description:
+      "Poached eggs on English muffins with Canadian bacon and hollandaise sauce",
+    price: 10,
+    imageUrl: "",
+    category: "breakfast",
+  },
+  {
+    id: 26,
+    title: "Chicken Caesar Wrap",
+    description:
+      "Grilled chicken, romaine lettuce, and Caesar dressing wrapped in a flour tortilla",
+    price: 9,
+    imageUrl: "",
+    category: "lunch",
+  },
+  {
+    id: 27,
+    title: "Vegetarian Pizza",
+    description: "Pizza topped with assorted vegetables and mozzarella cheese",
+    price: 12,
+    imageUrl: "",
+    category: "lunch",
+  },
+  {
+    id: 28,
+    title: "Fish Tacos",
+    description: "Battered fish tacos served with coleslaw and chipotle mayo",
+    price: 13,
+    imageUrl: "",
+    category: "dinner",
+  },
+  {
+    id: 29,
+    title: "Mango Lassi",
+    description: "Traditional Indian yogurt-based drink blended with mango",
+    price: 5,
+    imageUrl: "",
+    category: "breakfast",
+  },
+  {
+    id: 30,
+    title: "Chicken Curry",
+    description:
+      "Tender chicken pieces cooked in a flavorful curry sauce served with rice",
+    price: 14,
+    imageUrl: "",
+    category: "dinner",
+  },
 ];
-
-export default foodData;

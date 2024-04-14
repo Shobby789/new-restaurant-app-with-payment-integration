@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
+  const items = useSelector((state) => state.cartItems.cartItems);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -105,12 +107,12 @@ const Navbar = () => {
               </ul>
             </div>
           </div>
-          <Link to="/cart" className="fs-3 text-dark cart-icon me-lg-3">
+          <Link to="/cart" className="fs-3 text-dark cart-icon me-lg-3 me-sm-2">
             <IoCartOutline />
           </Link>
           <Link
             to="/login"
-            className="btn btn-dark rounded-5 text-small px-3 ms-lg-2"
+            className="btn btn-dark rounded-2 text-small px-3 mx-2"
           >
             Login
           </Link>
@@ -128,87 +130,6 @@ const Navbar = () => {
         </div>
       </nav>
     </>
-    // <nav
-    //   classNameName={
-    //     scrolling
-    //       ? "navbar navbar-expand-md fixed-top ps-lg-5 pe-lg-3 white"
-    //       : "navbar navbar-expand-md fixed-top ps-lg-5 pe-lg-3 transparent"
-    //   }
-    //   style={navbarStyle}
-    // >
-    //   <div classNameName="container-fluid">
-    //     <Link classNameName="navbar-brand fw-semibold fs-3 yellow-text" to="/">
-    //       foodie
-    //     </Link>
-    //     <div
-    //       classNameName="offcanvas offcanvas-end"
-    //       tabindex="-1"
-    //       id="offcanvasNavbar"
-    //       aria-labelledby="offcanvasNavbarLabel"
-    //     >
-    //       <div classNameName="offcanvas-header">
-    //         <h5
-    //           classNameName="offcanvas-title fw-semibold fs-3 yellow-text"
-    //           id="offcanvasNavbarLabel"
-    //         >
-    //           foodie
-    //         </h5>
-    //         <button
-    //           type="button"
-    //           classNameName="btn-close"
-    //           data-bs-dismiss="offcanvas"
-    //           aria-label="Close"
-    //         ></button>
-    //       </div>
-    //       <div classNameName="offcanvas-body">
-    //         <ul classNameName="navbar-nav justify-content-end flex-grow-1 pe-3">
-    //           <li classNameName="nav-item mx-md-2 mx-lg-3">
-    //             <Link
-    //               classNameName="nav-link active fw-medium"
-    //               aria-current="page"
-    //               to="/"
-    //             >
-    //               Home
-    //             </Link>
-    //           </li>
-    //           <li classNameName="nav-item mx-md-2 mx-lg-3">
-    //             <Link classNameName="nav-link fw-medium" to="/about">
-    //               About
-    //             </Link>
-    //           </li>
-    //           <li classNameName="nav-item mx-md-2 mx-lg-3">
-    //             <Link classNameName="nav-link fw-medium" to="/menu">
-    //               Menu
-    //             </Link>
-    //           </li>
-    //           <li classNameName="nav-item mx-md-2 mx-lg-3">
-    //             <Link classNameName="nav-link fw-medium" to="my-orders">
-    //               My Orders
-    //             </Link>
-    //           </li>
-    //           <li classNameName="nav-item mx-md-2 mx-lg-3">
-    //             <Link classNameName="nav-link fw-medium" to="/contact">
-    //               Contact
-    //             </Link>
-    //           </li>
-    //         </ul>
-    //       </div>
-    //     </div>
-    //     <Link to="/cart" classNameName="cart-icon">
-    //       <IoCartOutline classNameName="fs-4" />
-    //     </Link>
-    //     <button
-    //       classNameName="navbar-toggler"
-    //       type="button"
-    //       data-bs-toggle="offcanvas"
-    //       data-bs-target="#offcanvasNavbar"
-    //       aria-controls="offcanvasNavbar"
-    //       aria-label="Toggle navigation"
-    //     >
-    //       <span classNameName="navbar-toggler-icon"></span>
-    //     </button>
-    //   </div>
-    // </nav>
   );
 };
 

@@ -21,7 +21,7 @@ const AboutUs = () => {
               itaque maxime similique sunt consequuntur vitae expedita quos enim
               incidunt quam? Accusantium, nemo?
             </p>
-            <button className="px-3 py-2 rounded-5 fw-semibold about-btn">
+            <button className="px-3 py-2 rounded-2 fw-semibold about-btn">
               View More
             </button>
           </div>

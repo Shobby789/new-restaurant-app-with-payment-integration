@@ -29,7 +29,8 @@ const ItemCard = ({ id, imageUrl, title, description, price }) => {
           <div className="d-flex justify-content-between align-items-center">
             <p className="fw-semibold">${parseInt(price)}.00</p>
             <button
-              className="border-0 px-3 py-1 text-small rounded-5 yellow-btn"
+              className="border-0 px-3 pb-1 text-small rounded-2 yellow-btn"
+              style={{ paddingTop: "5px" }}
               onClick={() =>
                 handleAddToCart({ id, title, description, price, imageUrl })
               }

@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoEyeOutline } from "react-icons/io5";
 import { IoEyeOffOutline } from "react-icons/io5";
-import toast, { Toaster } from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { createUser } from "../../redux/authSlide/authSlice";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -22,24 +24,7 @@ const Register = () => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    // console.log("register data >> ", data);
-
-    const response = await fetch("http://localhost:3001/api/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (response.ok) {
-      const res = await response.json();
-      console.log("register res >> ", res);
-      toast.success("Registered Successfully!");
-      navigate("/login");
-    } else {
-      toast.error("Error Occurred! Please try again later.");
-    }
+    dispatch(createUser(data));
 
     setData({
       name: "",

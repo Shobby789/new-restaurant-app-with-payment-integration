@@ -16,7 +16,7 @@ export default function Hero() {
           </p>
           <Link
             to="/menu"
-            className="fw-semibold text-decoration-none text-light text-medium rounded-5 px-4 py-2"
+            className="fw-semibold text-decoration-none text-light text-medium rounded-2 px-4 py-2"
             style={{ border: "none", background: "#ff9d02" }}
           >
             Get Started

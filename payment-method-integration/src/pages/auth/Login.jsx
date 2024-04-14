@@ -3,7 +3,8 @@ import "./Style.css";
 import { Link, useNavigate } from "react-router-dom";
 import { IoEyeOutline } from "react-icons/io5";
 import { IoEyeOffOutline } from "react-icons/io5";
-import toast, { Toaster } from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../redux/authSlide/authSlice";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,25 +20,10 @@ const Login = () => {
     setData((values) => ({ ...values, [name]: value }));
   };
 
+  const dispatch = useDispatch();
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-
-    const response = await fetch("http://localhost:3001/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (response.ok) {
-      const res = await response.json();
-      console.log("login res >> ", res);
-      toast.success(res.message);
-      navigate("/");
-    } else {
-      toast.error(res.message);
-    }
+    dispatch(loginUser(data));
 
     setData({
       email: "",

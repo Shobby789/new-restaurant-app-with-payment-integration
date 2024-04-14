@@ -4,17 +4,12 @@ import { Link } from "react-router-dom";
 
 const Success = () => {
   return (
-    <div className="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
-      <div className="card py-5 text-center" style={{ width: "20rem" }}>
-        <div className="text-center">
-          <AiFillDollarCircle className="fs-1 text-success mb-3" />
-        </div>
-        <p className="text-success fs-5 fw-bold text-center">
-          Payment Successful
-        </p>
-        <p className="text-grey">Order placed successfully</p>
-        <Link to="/">Go to Home</Link>
-      </div>
+    <div className="container-fluid min-vh-100 d-flex flex-column justify-content-center align-items-center">
+      {/* <p className="text-dark fs-5 fw-bold text-center">Payment Successful</p> */}
+      <p className="text-dark fs-5 fw-semibold">
+        Your order has been placed successfully.
+      </p>
+      <Link to="/">Go to Home</Link>
     </div>
   );
 };

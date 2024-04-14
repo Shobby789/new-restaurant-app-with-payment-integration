@@ -11,7 +11,7 @@ module.exports.CreateUser = async (req, res) => {
   try {
     const userExist = await UserModel.findOne({ email });
     if (userExist) {
-      return res.status(409).send("Email already exists");
+      return res.status(200).send({ message: "Email already exists" });
     }
     await UserModel.create({
       name,
@@ -19,7 +19,7 @@ module.exports.CreateUser = async (req, res) => {
       phoneNumber,
       password: hashedPassword,
     });
-    res.status(201).send({ message: "User created successfully" });
+    res.status(200).send({ message: "User created successfully" });
   } catch (error) {
     console.log("register server error >> ", error);
     res.status(500).send({ message: error });
@@ -48,7 +48,7 @@ module.exports.LoginUser = async (req, res) => {
         return res.status(401).send({ message: "Invalid email or password" });
       }
     }
-    res.status(202).send({ message: "Invalid email or password" });
+    res.status(201).send({ message: "Invalid email or password" });
   } catch (error) {
     console.log("login server error >> ", error);
     res.status(500).send({ message: error });

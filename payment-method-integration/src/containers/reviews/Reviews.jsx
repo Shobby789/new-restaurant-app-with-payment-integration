@@ -7,7 +7,6 @@ import { RiDoubleQuotesR } from "react-icons/ri";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
 
 export const reviewsData = [
   {
@@ -48,6 +47,9 @@ export const sliderSettings2 = {
   slidesPerView: 1,
   spaceBetween: 0,
   centeredSlides: true,
+  autoplay: {
+    delay: 1000,
+  },
   loop: true,
   breakpoints: {
     480: {
@@ -79,39 +81,6 @@ const Reviews = () => {
       <div className="container pt-5">
         <div className="row">
           <div className="col-sm-12 col-md-7 col-lg-7 px-3 pe-lg-5 pt-lg-5">
-            {/* <div className="row review-slide">
-              <div className="row mb-lg-3">
-                <div className="col-sm-4 col-lg-2">
-                  <img
-                    src="https://img.freepik.com/free-photo/casual-man-model_144627-17075.jpg?t=st=1711225898~exp=1711229498~hmac=340c90fa7037ef6f65f6532b6ab5f81435a023346aa542d6dbcab82569a73509&w=900"
-                    alt=""
-                    className="img-fluid"
-                    style={{
-                      width: "70px",
-                      height: "70px",
-                      borderRadius: "100%",
-                    }}
-                  />
-                </div>
-                <div className="col-sm-8 col-lg-10 pt-3">
-                  <h6 className="text-medium fw-semibold">John Doe</h6>
-                  <p className="text-small">
-                    <IoMdStar className="yellow-text fs-5" />
-                    <IoMdStar className="yellow-text fs-5" />
-                    <IoMdStar className="yellow-text fs-5" />
-                    <IoMdStar className="yellow-text fs-5" />
-                    <IoMdStar className="yellow-text fs-5" />
-                  </p>
-                </div>
-              </div>
-              <p className="text-medium text-grey ps-lg-3">
-                <RiDoubleQuotesL className="yellow-text me-1" />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque,
-                minus fugiat expedita cupiditate nemo incidunt? Ipsum unde
-                laboriosam incidunt labore.
-                <RiDoubleQuotesR className="yellow-text ms-1" />
-              </p>
-            </div> */}
             <Swiper {...sliderSettings2}>
               <SliderButtons2 />
               {reviewsData.map(({ id, name, description, imageUrl }) => {
@@ -152,7 +121,6 @@ const Reviews = () => {
                 );
               })}
             </Swiper>
-            {/* <SliderButtons2 /> */}
           </div>
 
           <div className="col-sm-12 col-md-5 col-lg-5">

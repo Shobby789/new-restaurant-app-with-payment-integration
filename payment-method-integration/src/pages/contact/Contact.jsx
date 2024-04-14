@@ -29,7 +29,9 @@ const Contact = () => {
                 </div>
                 <div className="col-sm-9 col-md-10 col-lg-10 d-flex flex-column">
                   <p className="text-medium mb-1">00 (958) 9865 562</p>
-                  <p className="text-small text-grey">Mon to Fri 9am to 6 pm</p>
+                  <p className="text-small text-grey">
+                    Mon to Fri 9 am to 6 pm
+                  </p>
                 </div>
               </div>
               <div className="row mb-1">
@@ -79,7 +81,7 @@ const Contact = () => {
                 placeholder="Enter Message"
               ></textarea>
               <div className="mt-3 text-end pt-3">
-                <button className="btn btn-dark fw-medium text-medium px-3 px-lg-5 rounded-5">
+                <button className="btn btn-dark fw-medium text-medium px-3 px-lg-5 rounded-2">
                   Send
                 </button>
               </div>
