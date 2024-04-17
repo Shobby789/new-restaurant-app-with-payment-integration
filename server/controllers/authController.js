@@ -54,3 +54,7 @@ module.exports.LoginUser = async (req, res) => {
     res.status(500).send({ message: error });
   }
 };
+
+// forgot password
+
+// update password
